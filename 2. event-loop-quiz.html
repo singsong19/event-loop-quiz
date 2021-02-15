@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-loop-quiz</title>
+    <style>
+        .box{
+            background-color: blueviolet;
+            margin-top: 50px;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button>Let's Go~ move</button>
+    <div class="box"></div>
+    <script>
+        const button = document.querySelector('button');
+        const box = document.querySelector('.box');
+        button.addEventListener('click', () => {
+            box.style.transition = 'transform 1s ease-in';
+            box.style.transform = 'translateX(800px)';
+            box.style.transform = 'translateX(500px)';
+        });
+
+        //아무리 많은 스타일과 트랜지션을 변경해도 event loop가 돌고있을 때에는 
+        //변경사항이 browser에 보여지지 않음. 결국 마지막에 수행된 아이가 최종적으로 보여지게됨.
+    </script>
+</body>
+</html>
